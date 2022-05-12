@@ -1,5 +1,3 @@
-from collections import deque
-
 class Lista:
     def __init__(self, lst=None):
         self.items = []
@@ -15,7 +13,6 @@ class Lista:
     def insert_mol(self, item):
         mposition = len(self.items)//2
         self.items = self.items[0:mposition] + [item] + self.items[mposition:]
-
 
     def insert_eol(self, item):
         self.items.append(item)
@@ -55,13 +52,12 @@ class Lista:
     def print_list(self):
         for item in self.items:
             print(item)
-
-
-list = Lista([1, 2, 3, 4, 5, 6, 7, 8])
-list.print_list()
-print("\n")
-list.remove_mol()
-list.print_list()
+            
+# list = Lista([1, 2, 3, 4, 5, 6, 7, 8])
+# list.print_list()
+# print("\n")
+# list.remove_mol()
+# list.print_list()
 # list.insert_bol('5')
 # list.print_list()
 # print("\n")

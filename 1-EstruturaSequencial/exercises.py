@@ -5,39 +5,6 @@
 
 import math
 
-# Faça um Programa para uma loja de tintas. O programa deverá pedir o tamanho em metros quadrados da área a ser pintada. 
-# Considere que a cobertura da tinta é de 1 litro para cada 6 metros quadrados e que a tinta é vendida em latas de 18 
-# litros, que custam R$ 80,00 ou em galões de 3,6 litros, que custam R$ 25,00. 
-print("\n")
-print("##### 17 #####")
-totalSquareMeter = 0.0
-litersPerCan = 18
-pricePerCan = 80
-litersPerGallon = 3.6
-pricePerGallon = 25
-litersPerTotalSquareMeter = 0.0
-totalCans = 0
-totalGallons = 0
-totalSquareMeter = float(input('Digite quantos metros quadrados devem ser pintados: '))
-litersPerTotalSquareMeter = totalSquareMeter / 6
-if(litersPerTotalSquareMeter > litersPerCan):
-    totalCans = math.ceil(litersPerTotalSquareMeter / litersPerCan)
-else:
-    totalCans = 1
-print("Comprar apenas latas de 18 litros:")
-print("--------------------------------------")    
-print("A quantidade de lata(s) de tinta a serem compradas é {:.2f}".format(totalCans))
-print("O preço total a ser pago é R$ {:.2f}".format(totalCans * pricePerCan))
-print("\n")
-if(litersPerTotalSquareMeter > litersPerGallon):
-    totalGallons = math.ceil(litersPerTotalSquareMeter / litersPerGallon)
-else:
-    totalGallons = 1
-print("Comprar apenas galões de 3,6 litros:")
-print("--------------------------------------")    
-print("A quantidade de lata(s) de tinta a serem compradas é {:.2f}".format(totalGallons))
-print("O preço total a ser pago é R$ {:.2f}".format(totalGallons * pricePerGallon))
-
 # Faça um Programa que mostre a mensagem "Alo mundo" na tela. 
 print("##### 1 #####")
 print('Alô mundo')
@@ -200,3 +167,36 @@ else:
     totalCans = 1
 print("A quantidade de lata(s) de tinta a serem compradas é {:.2f}".format(totalCans))
 print("O preço total a ser pago é R$ {:.2f}".format(totalCans * pricePerCan))
+
+# Faça um Programa para uma loja de tintas. O programa deverá pedir o tamanho em metros quadrados da área a ser pintada. 
+# Considere que a cobertura da tinta é de 1 litro para cada 6 metros quadrados e que a tinta é vendida em latas de 18 
+# litros, que custam R$ 80,00 ou em galões de 3,6 litros, que custam R$ 25,00. 
+print("\n")
+print("##### 17 #####")
+totalSquareMeter = 0.0
+litersPerCan = 18
+pricePerCan = 80
+litersPerGallon = 3.6
+pricePerGallon = 25
+litersPerTotalSquareMeter = 0.0
+totalCans = 0
+totalGallons = 0
+totalSquareMeter = float(input('Digite quantos metros quadrados devem ser pintados: '))
+litersPerTotalSquareMeter = totalSquareMeter / 6
+if(litersPerTotalSquareMeter > litersPerCan):
+    totalCans = math.ceil(litersPerTotalSquareMeter / litersPerCan)
+else:
+    totalCans = 1
+print("Comprar apenas latas de 18 litros:")
+print("--------------------------------------")    
+print("A quantidade de lata(s) de tinta a serem compradas é {:.2f}".format(totalCans))
+print("O preço total a ser pago é R$ {:.2f}".format(totalCans * pricePerCan))
+print("\n")
+if(litersPerTotalSquareMeter > litersPerGallon):
+    totalGallons = math.ceil(litersPerTotalSquareMeter / litersPerGallon)
+else:
+    totalGallons = 1
+print("Comprar apenas galões de 3,6 litros:")
+print("--------------------------------------")    
+print("A quantidade de lata(s) de tinta a serem compradas é {:.2f}".format(totalGallons))
+print("O preço total a ser pago é R$ {:.2f}".format(totalGallons * pricePerGallon))
