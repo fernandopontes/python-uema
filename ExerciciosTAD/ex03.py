@@ -1,6 +1,3 @@
-import copy
-from tkinter.messagebox import NO
-
 from lista import Node
 from lista import LinkedList
 
