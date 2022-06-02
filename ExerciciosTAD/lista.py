@@ -1,3 +1,6 @@
+from tracemalloc import start
+
+
 class Lista:
     def __init__(self, lst=None):
         self.items = []
@@ -143,6 +146,63 @@ class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+        self.previous = None
 
     def __repr__(self):
         return self.data
+
+class CircularLinkedList:
+    def __init__(self, nodes=None):
+        self.head = None
+        if nodes is not None:
+            node = Node(data=nodes.pop(0))
+            self.head = node
+            for elem in nodes:
+                node.next = Node(data=elem)
+                previous_node = node
+                node = node.next
+                node.previous = previous_node
+                if nodes[-1] == elem:
+                    node.next = self.head
+                    self.head.previous = node
+
+    def traverse(self, starting_point=None, way=None):
+        if starting_point is None:
+                starting_point = self.head
+        node = starting_point.next if way == "left" else starting_point.previous
+        while node is not None and (node != starting_point):
+            yield node
+            node = node.next if way == "left" else node.previous
+        yield node
+
+    def search_node(self, node_value=None):
+        node = self.head
+        while node is not None:
+            if(node.data == node_value):
+                return node
+            node = node.next 
+
+    def remove_node(self, target_node_data):
+        if self.head is None:
+            raise Exception("List is empty")
+
+        target_node = self.search_node(target_node_data)
+        
+        if self.head == target_node:
+            node_prev = self.head.previous
+            node_prev.next = self.head.next
+            self.head = self.head.next
+            self.head.previous = node_prev
+        else:
+            node_prev = target_node.previous
+            node_prev.next = target_node.next
+            node_next = target_node.next
+            node_next.previous = node_prev
+       
+    def print_list(self, starting_point=None, way=None):
+        nodes  = []
+        for node in self.traverse(starting_point, way):
+            if not isinstance(node, str):
+                node = "{}".format(node.__str__())
+            nodes.append(node)
+        return " -> ".join(nodes)
