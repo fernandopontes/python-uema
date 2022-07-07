@@ -141,7 +141,11 @@ class LinkedList:
         
         raise Exception("Node with data '%s' not found" % target_node_data)
 
-
+class Register:
+    def __init__(self, key, name):
+        self.key = key;
+        self.name = name;
+        
 class Node:
     def __init__(self, data):
         self.data = data
@@ -168,7 +172,7 @@ class CircularLinkedList:
 
     def traverse(self, starting_point=None, way=None):
         if starting_point is None:
-                starting_point = self.head
+            starting_point = self.head
         node = starting_point.next if way == "left" else starting_point.previous
         while node is not None and (node != starting_point):
             yield node
@@ -181,6 +185,16 @@ class CircularLinkedList:
             if(node.data == node_value):
                 return node
             node = node.next 
+
+    def add_item(self, node):
+        if self.head is None:
+            self.head = node
+        else:
+            last_node = self.head.previous
+            last_node.next = node   
+            node.previous = last_node
+            node.next = self.head
+            self.head.previous = node
 
     def remove_node(self, target_node_data):
         if self.head is None:
