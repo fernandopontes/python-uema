@@ -95,6 +95,10 @@ class Node(object):
 if __name__ == '__main__':
     print('Exercício de Árvores Binárias de Pesquisa (ABP)')
 
+    print('\n')
+    print('#### ABP 1 ####')
+    print('\n')
+
     tree = Node(60)
     tree.insert(59)
     tree.insert(55)
@@ -110,3 +114,19 @@ if __name__ == '__main__':
     tree.delete(80)
     print('\n')
     tree.print_tree()
+
+    list = [70, 75, 80, 6, 10, 20]
+
+    i=1
+    for number in list:
+        if(i == 1):
+            tree2 = Node(number)
+        else:
+            tree2.insert(number)
+        i += 1
+
+    print('\n')
+    print('#### ABP 2 ####')
+    print('\n')
+    tree2.print_tree()
+        
